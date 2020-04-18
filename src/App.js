@@ -7,7 +7,11 @@ function App() {
 
   const [repos, setRepos] = useState([]);
 
-  useEffect(() => api.get('repositories').then(({data}) => setRepos(data)), []);
+  useEffect(() => {
+    api
+      .get('repositories')
+      .then(({data}) => setRepos(data));
+  }, []);
 
   async function handleAddRepository() {
     const projectTitle = new Date().getTime();
